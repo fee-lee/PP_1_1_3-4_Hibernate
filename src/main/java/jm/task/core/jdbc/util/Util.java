@@ -20,7 +20,7 @@ public class Util {
     private static String USERNAME;
     private static String PASS;
 
-   public static Connection getConnection() {
+   public static Connection getConnection() throws SQLException {
 
 
         FileInputStream fileInputStream;
@@ -44,6 +44,7 @@ public class Util {
         try  {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(urlDB, USERNAME, PASS);
+            connection.setAutoCommit(false);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
