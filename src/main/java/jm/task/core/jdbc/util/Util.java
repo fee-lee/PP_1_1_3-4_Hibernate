@@ -53,34 +53,7 @@ public class Util {
 
    public static Connection getConnection() throws SQLException {
 
-
-        FileInputStream fileInputStream;
-        Properties properties = new Properties();
-
-        try {
-            fileInputStream = new FileInputStream("src/main/resources/config.properties");
-            properties.load(fileInputStream);
-
-            urlDB = properties.getProperty("urlDB");
-            USERNAME = properties.getProperty("USERNAME");
-            PASS = properties.getProperty("PASS");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Connection connection = null;
-
-        try  {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(urlDB, USERNAME, PASS);
-            connection.setAutoCommit(false);
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return connection;
+        return null;
     }
 }
 
